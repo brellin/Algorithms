@@ -9,14 +9,14 @@ rps = [
 ]
 
 
-def add_possibility(n, curr, acc):
+def add_possibility(n, acc, curr=[]):
 
     if n == 0:
         return acc.append(curr)
 
     possibility = 0
     while possibility < 3:
-        add_possibility(n - 1, curr + rps[possibility], acc)
+        add_possibility(n - 1, acc, curr + rps[possibility])
         possibility += 1
 
 
@@ -24,7 +24,7 @@ def rock_paper_scissors(n):
 
     possibilities = []
 
-    add_possibility(n, [], possibilities)
+    add_possibility(n, possibilities)
 
     return possibilities
 
