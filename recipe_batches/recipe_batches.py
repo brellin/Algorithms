@@ -13,7 +13,7 @@ def recipe_batches(recipe, ingredients):
             track[k] += 1
             v -= recipe[k]
 
-    return min(track.values()) if len(ingredients) == len(recipe) else 0
+    return 0 if len(ingredients) < len(recipe) else min(track.values())
 
 
 if __name__ == '__main__':

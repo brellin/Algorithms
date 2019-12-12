@@ -4,7 +4,17 @@ import sys
 
 
 def making_change(amount, denominations):
-    pass
+    cache = [0 for a in range(amount + 1)]
+    cache[0] = 1
+
+    for d in denominations:
+        n = d
+        while n <= amount:
+            cache[n] += cache[n - d]
+            print(cache)
+            n += 1
+
+    return max(cache)
 
 
 if __name__ == "__main__":
