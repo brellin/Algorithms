@@ -8,22 +8,23 @@ rps = [
     ['scissors']
 ]
 
-possibilities = []
 
-
-def add_possiblility(n, arr):
-
-    print(f'possibility: {n}')
+def add_possibility(n, curr, acc):
 
     if n == 0:
-        return possibilities.append(arr)
+        return acc.append(curr)
 
-    for possibility in rps:
-        add_possiblility(n - 1, arr + possibility)
+    possibility = 0
+    while possibility < 3:
+        add_possibility(n - 1, curr + rps[possibility], acc)
+        possibility += 1
 
 
 def rock_paper_scissors(n):
-    add_possiblility(n, [])
+
+    possibilities = []
+
+    add_possibility(n, [], possibilities)
 
     return possibilities
 
